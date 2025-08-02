@@ -1,10 +1,10 @@
 {
   "contractName": "CertNFTAvalanche",
-  "contractAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+  "contractAddress": "0xdD80FA4FA7781135d5B4fb67054EDCcF17E58DE4",
   "network": "avalanche",
-  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "timestamp": "2025-08-02T06:05:21.251Z",
-  "transactionHash": "0xa464185270e79aa2989e09342046517998b628bb07d7960c82f7aacab9c1e8f3",
-  "gasUsed": "30000000",
-  "blockNumber": 2
+  "deployer": "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb",
+  "timestamp": "2025-08-02T22:08:30.998Z",
+  "transactionHash": "0x65f2d23d25536472690d6a67851f5f963f23b9052d47ea17e5eaa9cd3306bb4b",
+  "gasUsed": "2396851",
+  "blockNumber": 44260111
 }
