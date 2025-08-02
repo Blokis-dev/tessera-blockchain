@@ -1,0 +1,62 @@
+{
+  "tokenId": "0",
+  "recipient": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  "studentName": "María González López",
+  "courseName": "Desarrollo de DApps en Avalanche",
+  "institutionName": "Instituto Blockchain Avanzado",
+  "transactionHash": "0x00d012bbba9cd8312a950a24e54575d0515b246e6db40a5d63e24f2c14de6b87",
+  "blockNumber": 5,
+  "gasUsed": "356487",
+  "timestamp": "2025-08-02T06:06:34.740Z",
+  "metadata": {
+    "name": "Desarrollo de DApps en Avalanche - María González López",
+    "description": "Certificado digital de Desarrollo de DApps en Avalanche otorgado por Instituto Blockchain Avanzado a María González López. Este certificado está verificado en blockchain y es inmutable.",
+    "image": "https://ipfs.io/ipfs/QmSampleCertificateImageHash",
+    "external_url": "https://certchain.com/verify/a3d259f725fc66f6",
+    "attributes": [
+      {
+        "trait_type": "Student Name",
+        "value": "María González López"
+      },
+      {
+        "trait_type": "Course",
+        "value": "Desarrollo de DApps en Avalanche"
+      },
+      {
+        "trait_type": "Institution",
+        "value": "Instituto Blockchain Avanzado"
+      },
+      {
+        "trait_type": "Issue Date",
+        "value": "2025-08-02"
+      },
+      {
+        "trait_type": "Expiration Date",
+        "value": "2030-08-02"
+      },
+      {
+        "trait_type": "Blockchain",
+        "value": "Avalanche"
+      },
+      {
+        "trait_type": "Certificate Type",
+        "value": "Digital Certificate"
+      },
+      {
+        "trait_type": "Valid",
+        "value": "Yes"
+      }
+    ],
+    "certificate_data": {
+      "student_name": "María González López",
+      "course_name": "Desarrollo de DApps en Avalanche",
+      "institution_name": "Instituto Blockchain Avanzado",
+      "issue_date": "2025-08-02T06:06:34.684Z",
+      "expiration_date": "2030-08-02T06:06:34.684Z",
+      "certificate_id": "a3d259f725fc66f6",
+      "blockchain": "Avalanche"
+    }
+  },
+  "contractAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+  "network": "Avalanche Fuji"
+}

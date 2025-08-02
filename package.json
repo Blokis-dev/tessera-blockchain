@@ -1,0 +1,36 @@
+{
+  "name": "tessera-blockchain",
+  "version": "1.0.0",
+  "description": "Sistema de certificación blockchain con NFTs en Avalanche y Arbitrum",
+  "main": "hardhat.config.ts",
+  "scripts": {
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "node": "hardhat node",
+    "test": "hardhat test",
+    "test:avalanche": "hardhat test test/avalanche.test.ts",
+    "test:arbitrum": "hardhat test test/arbitrum.test.ts",
+    "deploy:fuji": "hardhat run deploy/deploy-avalanche.ts --network fuji",
+    "deploy:avalanche": "hardhat run deploy/deploy-avalanche.ts --network avalanche",
+    "deploy:arbitrum-sepolia": "hardhat run deploy/deploy-arbitrum.ts --network arbitrumSepolia",
+    "deploy:arbitrum": "hardhat run deploy/deploy-arbitrum.ts --network arbitrum",
+    "mint:avalanche": "hardhat run scripts/mint-avalanche.ts --network fuji",
+    "mint:arbitrum": "hardhat run scripts/mint-arbitrum.ts --network arbitrumSepolia",
+    "verify:avalanche": "hardhat run scripts/verify-avalanche.ts --network fuji",
+    "verify:arbitrum": "hardhat run scripts/verify-arbitrum.ts --network arbitrumSepolia",
+    "api:mint": "hardhat run scripts/api-certificate-mint.ts --network arbitrumSepolia",
+    "api:mint:avalanche": "hardhat run scripts/api-certificate-mint.ts --network fuji",
+    "api:mint:arbitrum": "hardhat run scripts/api-certificate-mint.ts --network arbitrumSepolia",
+    "demo": "npx ts-node scripts/demo-api-integration.ts"
+  },
+  "keywords": ["blockchain", "nft", "certificates", "avalanche", "arbitrum"],
+  "author": "Blokis Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^17.2.1",
+    "ethers": "^6.15.0",
+    "hardhat": "^2.26.1"
+  }
+}
