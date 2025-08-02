@@ -1,10 +1,10 @@
 {
   "contractName": "CertNFTArbitrum",
-  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "contractAddress": "0xdD80FA4FA7781135d5B4fb67054EDCcF17E58DE4",
   "network": "arbitrum",
-  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "timestamp": "2025-08-02T06:05:09.684Z",
-  "transactionHash": "0xcbfb0b3ae162ebde77967d1ce2a64d503c8d403e68f24841187023bbf7df4586",
-  "gasUsed": "30000000",
-  "blockNumber": 1
+  "deployer": "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb",
+  "timestamp": "2025-08-02T21:34:25.172Z",
+  "transactionHash": "0xeb6ff36376533d9e10fc07546fdc45a9339792b450e8a55e5a25842e7ae09e58",
+  "gasUsed": "2395371",
+  "blockNumber": 180021092
 }
