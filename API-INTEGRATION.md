@@ -317,18 +317,3 @@ npm run mint:arbitrum
 npm run mint:avalanche
 ```
 
----
-
-## 🎯 Listo para Producción
-
-Este sistema está preparado para:
-
-✅ Recibir datos de la API/base de datos  
-✅ Validar información del estudiante  
-✅ Generar metadatos NFT automáticamente  
-✅ Emitir certificados en blockchain  
-✅ Manejar errores y logs  
-✅ Soportar emisión individual y en lote  
-✅ Guardar auditoría completa  
-
-**La API envía → Blockchain procesa → Respuesta estructurada**

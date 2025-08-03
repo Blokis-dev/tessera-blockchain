@@ -93,26 +93,19 @@ server {
 
 ### Crear instancia:
 ```bash
-# 1. Crear EC2 t3.micro con Ubuntu 22.04
-# 2. Configurar Security Group (puerto 80, 443, 22)
-# 3. Conectar via SSH
 
-# 4. Instalar software
 sudo apt update
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs nginx
 
-# 5. Configurar tu proyecto (mismo proceso que DigitalOcean)
 ```
 
 ## 🐳 Opción 4: Docker
 
 ### Build y run local:
 ```bash
-# 1. Build imagen
 docker build -t tessera-blockchain .
 
-# 2. Run contenedor
 docker run -d \
   --name tessera-api \
   -p 3000:3000 \

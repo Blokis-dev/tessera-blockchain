@@ -451,7 +451,5 @@ tar -czf tessera-backup-$(date +%Y%m%d).tar.gz \
 
 ---
 
----
-
 *Última actualización: 02 de Agosto de 2025*
 *Estado: PRODUCTION READY ✅*
