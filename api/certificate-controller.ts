@@ -244,18 +244,25 @@ export class CertificateApiExamples {
   /**
    * Ejemplo de solicitud individual
    */
-  static getExampleSingleRequest() {
+  static getExampleSingleRequest(networkName?: string) {
+    // Detectar red automáticamente
+    const isAvalanche = networkName === "fuji" || networkName === "avalanche";
+    const network = isAvalanche ? "avalanche" : "arbitrum";
+    const courseName = isAvalanche ? "DeFi Protocols en Avalanche" : "DeFi Protocols en Arbitrum";
+    const imageHash = isAvalanche ? "QmAvalancheCertificateImageHash" : "QmArbitrumCertificateImageHash";
+    const metadataHash = isAvalanche ? "QmAvalancheMetadataHash" : "QmArbitrumMetadataHash";
+
     return {
       student: {
         id: "550e8400-e29b-41d4-a716-446655440000",
         email: "juan.perez@email.com",
         full_name: "Juan Pérez González",
-        wallet_address: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+        wallet_address: "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb" // Usar dirección del deployer
       },
       certificate: {
         title: "Certificado de Finalización - DeFi Protocols",
         description: "Certificado que acredita la finalización exitosa del curso DeFi Protocols",
-        course_name: "DeFi Protocols en Arbitrum",
+        course_name: courseName,
         issued_at: "2025-08-02T00:00:00Z",
         expiration_date: "2030-08-02T00:00:00Z"
       },
@@ -265,17 +272,21 @@ export class CertificateApiExamples {
         legal_id: "RUC-20123456789"
       },
       ipfs: {
-        image_hash: "QmArbitrumCertificateImageHash",
-        metadata_hash: "QmArbitrumMetadataHash"
+        image_hash: imageHash,
+        metadata_hash: metadataHash
       },
-      network: "arbitrum"
+      network: network
     };
   }
 
   /**
    * Ejemplo de solicitud en lote
    */
-  static getExampleBatchRequest() {
+  static getExampleBatchRequest(networkName?: string) {
+    // Detectar red automáticamente
+    const isAvalanche = networkName === "fuji" || networkName === "avalanche";
+    const network = isAvalanche ? "avalanche" : "arbitrum";
+
     return {
       certificates: [
         {
@@ -283,7 +294,7 @@ export class CertificateApiExamples {
             id: "550e8400-e29b-41d4-a716-446655440001",
             email: "ana.martin@email.com",
             full_name: "Ana Martín González",
-            wallet_address: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+            wallet_address: "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb" // Usar dirección del deployer
           },
           certificate: {
             title: "Certificado de Finalización - Smart Contracts Avanzados",
@@ -299,14 +310,14 @@ export class CertificateApiExamples {
           ipfs: {
             image_hash: "QmBatchCert1"
           },
-          network: "arbitrum"
+          network: network
         },
         {
           student: {
             id: "550e8400-e29b-41d4-a716-446655440002",
             email: "luis.fernandez@email.com",
             full_name: "Luis Fernández Ruiz",
-            wallet_address: "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+            wallet_address: "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb" // Usar dirección del deployer
           },
           certificate: {
             title: "Certificado de Finalización - Smart Contracts Avanzados",
@@ -322,7 +333,7 @@ export class CertificateApiExamples {
           ipfs: {
             image_hash: "QmBatchCert2"
           },
-          network: "arbitrum"
+          network: network
         }
       ]
     };

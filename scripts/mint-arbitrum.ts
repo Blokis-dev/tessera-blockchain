@@ -29,7 +29,7 @@ async function main() {
 
   // Datos del certificado (puedes modificar estos datos)
   const certificateData = {
-    recipient: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", // Cuenta #1 del nodo local
+    recipient: deployer.address, // Usar la cuenta del deployer para evitar problemas
     studentName: "Carlos Rivera Mendoza",
     courseName: "DeFi Protocols en Arbitrum",
     institutionName: "Academia Crypto Finance",
@@ -70,23 +70,40 @@ async function main() {
 
   // Verificar si el deployer puede mintear (debe ser owner o institución autorizada)
   try {
-    const isAuthorized: boolean = await certNFT.authorizedInstitutions(deployer.address);
     const owner: string = await certNFT.owner();
+    console.log(`👑 Contract owner: ${owner}`);
+    console.log(`👤 Current account: ${deployer.address}`);
     
-    if (!isAuthorized && deployer.address.toLowerCase() !== owner.toLowerCase()) {
-      console.log("⚠️  Current account is not authorized. Authorizing as institution...");
+    // Si es el owner, autorizar como institución
+    if (deployer.address.toLowerCase() === owner.toLowerCase()) {
+      console.log("👑 Account is contract owner");
       
-      // Si es el owner, autorizar la cuenta actual como institución
-      if (deployer.address.toLowerCase() === owner.toLowerCase()) {
-        const authTx = await certNFT.authorizeInstitution(deployer.address);
-        await authTx.wait();
-        console.log("✅ Account authorized as institution");
-      } else {
-        throw new Error("Account is not owner and cannot authorize itself");
+      // Verificar si ya está autorizado
+      try {
+        const isAuthorized: boolean = await certNFT.authorizedInstitutions(deployer.address);
+        if (!isAuthorized) {
+          console.log("🔑 Authorizing owner as institution...");
+          const authTx = await certNFT.authorizeInstitution(deployer.address);
+          await authTx.wait();
+          console.log("✅ Owner authorized as institution");
+        } else {
+          console.log("✅ Owner already authorized as institution");
+        }
+      } catch (authError: any) {
+        console.log("❌ Error checking/setting authorization:", authError.message);
+        console.log("⚠️ Proceeding anyway since account is owner...");
       }
+    } else {
+      // Verificar si está autorizado como institución
+      const isAuthorized: boolean = await certNFT.authorizedInstitutions(deployer.address);
+      if (!isAuthorized) {
+        throw new Error(`Account ${deployer.address} is not authorized. Contract owner is ${owner}`);
+      }
+      console.log("✅ Account authorized as institution");
     }
-  } catch (error) {
-    console.log("⚠️  Could not check authorization, proceeding anyway...");
+  } catch (error: any) {
+    console.log("❌ Authorization error:", error.message);
+    throw error;
   }
 
   // Preparar los parámetros para el mint

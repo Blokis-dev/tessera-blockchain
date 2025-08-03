@@ -1,0 +1,62 @@
+{
+  "tokenId": null,
+  "recipient": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  "studentName": "Carlos Rivera Mendoza",
+  "courseName": "DeFi Protocols en Arbitrum",
+  "institutionName": "Academia Crypto Finance",
+  "transactionHash": "0x524de44cc8cd2ec87ee4bcbf03c201c45e2bb5af29b40d06417f0762531f5030",
+  "blockNumber": 1,
+  "gasUsed": "32080",
+  "timestamp": "2025-08-02T22:57:21.362Z",
+  "metadata": {
+    "name": "DeFi Protocols en Arbitrum - Carlos Rivera Mendoza",
+    "description": "Certificado digital de DeFi Protocols en Arbitrum otorgado por Academia Crypto Finance a Carlos Rivera Mendoza. Este certificado está verificado en blockchain y es inmutable.",
+    "image": "https://ipfs.io/ipfs/QmArbitrumCertificateImageHash",
+    "external_url": "https://certchain.com/verify/201a7d5c6706517a",
+    "attributes": [
+      {
+        "trait_type": "Student Name",
+        "value": "Carlos Rivera Mendoza"
+      },
+      {
+        "trait_type": "Course",
+        "value": "DeFi Protocols en Arbitrum"
+      },
+      {
+        "trait_type": "Institution",
+        "value": "Academia Crypto Finance"
+      },
+      {
+        "trait_type": "Issue Date",
+        "value": "2025-08-02"
+      },
+      {
+        "trait_type": "Expiration Date",
+        "value": "2030-08-02"
+      },
+      {
+        "trait_type": "Blockchain",
+        "value": "Arbitrum"
+      },
+      {
+        "trait_type": "Certificate Type",
+        "value": "Digital Certificate"
+      },
+      {
+        "trait_type": "Valid",
+        "value": "Yes"
+      }
+    ],
+    "certificate_data": {
+      "student_name": "Carlos Rivera Mendoza",
+      "course_name": "DeFi Protocols en Arbitrum",
+      "institution_name": "Academia Crypto Finance",
+      "issue_date": "2025-08-02T22:57:21.326Z",
+      "expiration_date": "2030-08-02T22:57:21.326Z",
+      "certificate_id": "201a7d5c6706517a",
+      "blockchain": "Arbitrum"
+    }
+  },
+  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "network": "Arbitrum Sepolia"
+}

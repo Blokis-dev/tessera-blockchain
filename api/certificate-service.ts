@@ -116,6 +116,17 @@ export class CertificateService {
       const tokenURI = `https://ipfs.io/ipfs/${request.ipfs.metadata_hash || request.ipfs.image_hash}`;
       const expirationTimestamp = ContractUtils.dateToTimestamp(expirationDate);
 
+      console.log("🔍 DEBUG - Parámetros del mint:");
+      console.log(`   recipient: ${request.student.wallet_address}`);
+      console.log(`   studentName: ${request.student.full_name}`);
+      console.log(`   courseName: ${request.certificate.course_name}`);
+      console.log(`   institutionName: ${request.institution.name}`);
+      console.log(`   tokenURI: ${tokenURI}`);
+      console.log(`   ipfsHash: ${request.ipfs.image_hash}`);
+      console.log(`   expirationDate: ${expirationDate.toISOString()}`);
+      console.log(`   expirationTimestamp: ${expirationTimestamp}`);
+      console.log(`   currentTimestamp: ${Math.floor(Date.now() / 1000)}`);
+
       console.log("⛽ Estimando gas...");
       
       // Estimar gas
@@ -332,7 +343,8 @@ export class CertificateService {
    * Obtiene información del contrato según la red
    */
   private static async getContractInfo(network: string): Promise<{ address: string; contractName: string }> {
-    const deploymentPath = path.join(__dirname, `../deployments/${network}`);
+    const deploymentFolder = network === "avalanche" ? "avalanche" : "arbitrum";
+    const deploymentPath = path.join(__dirname, `../deployments/${deploymentFolder}`);
     const fileName = network === "avalanche" ? "CertNFTAvalanche.json" : "CertNFTArbitrum.json";
     const contractName = network === "avalanche" ? "CertNFTAvalanche" : "CertNFTArbitrum";
     
@@ -355,22 +367,54 @@ export class CertificateService {
    */
   private static async ensureAuthorization(certNFT: any, deployer: any): Promise<void> {
     try {
-      const isAuthorized = await certNFT.authorizedInstitutions(deployer.address);
-      const owner = await certNFT.owner();
-      
-      if (!isAuthorized && deployer.address.toLowerCase() !== owner.toLowerCase()) {
-        console.log("⚠️ Cuenta no autorizada. Autorizando como institución...");
-        
-        if (deployer.address.toLowerCase() === owner.toLowerCase()) {
-          const authTx = await certNFT.authorizeInstitution(deployer.address);
-          await authTx.wait();
-          console.log("✅ Cuenta autorizada como institución");
-        } else {
-          throw new Error("La cuenta no es owner y no puede autorizarse");
-        }
+      // Intentar obtener el owner primero
+      let owner: string;
+      try {
+        owner = await certNFT.owner();
+      } catch (error: any) {
+        console.log("❌ Error obteniendo owner:", error.message);
+        throw new Error("No se puede verificar el owner del contrato");
       }
-    } catch (error) {
-      console.log("⚠️ No se pudo verificar autorización, continuando...");
+
+      // Si es el owner, puede mintear sin autorización adicional
+      if (deployer.address.toLowerCase() === owner.toLowerCase()) {
+        console.log("✅ Cuenta es owner del contrato, puede mintear");
+        
+        // Intentar autorizar como institución para futuros usos
+        try {
+          const isAuthorized = await certNFT.authorizedInstitutions(deployer.address);
+          if (!isAuthorized) {
+            console.log("🔑 Autorizando owner como institución para consistencia...");
+            const authTx = await certNFT.authorizeInstitution(deployer.address);
+            await authTx.wait();
+            console.log("✅ Owner autorizado como institución");
+          }
+        } catch (authError: any) {
+          console.log("⚠️ Error autorizando owner como institución (no crítico):", authError.message);
+        }
+        return;
+      }
+      
+      // Si no es owner, verificar autorización
+      let isAuthorized = false;
+      try {
+        isAuthorized = await certNFT.authorizedInstitutions(deployer.address);
+      } catch (error: any) {
+        console.log("❌ Error verificando autorización:", error.message);
+        throw new Error("No se puede verificar la autorización de la cuenta");
+      }
+
+      if (isAuthorized) {
+        console.log("✅ Cuenta está autorizada como institución");
+        return;
+      }
+      
+      // No es owner y no está autorizado
+      throw new Error(`Cuenta ${deployer.address} no está autorizada para mintear. Owner: ${owner}`);
+      
+    } catch (error: any) {
+      console.log("❌ Error en autorización:", error.message);
+      throw error;
     }
   }
 

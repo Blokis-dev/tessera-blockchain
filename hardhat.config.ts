@@ -40,12 +40,18 @@ const config: HardhatUserConfig = {
     },
   },
   etherscan: {
-    apiKey: {
-      avalancheFujiTestnet: process.env.ETHERSCAN_API_KEY || "",
-      avalanche: process.env.ETHERSCAN_API_KEY || "",
-      arbitrumOne: process.env.ARBISCAN_API_KEY || "",
-      arbitrumSepolia: process.env.ARBISCAN_API_KEY || "",
-    },
+    // Migración a Etherscan V2 API (Multichain) - Una sola API key para todas las redes
+    apiKey: process.env.ETHERSCAN_API_KEY || "",
+    customChains: [
+      {
+        network: "arbitrumSepolia",
+        chainId: 421614,
+        urls: {
+          apiURL: "https://api-sepolia.arbiscan.io/api",
+          browserURL: "https://sepolia.arbiscan.io"
+        }
+      }
+    ]
   },
   paths: {
     sources: "./contracts",

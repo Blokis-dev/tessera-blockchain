@@ -1,4 +1,5 @@
 import { CertificateController, CertificateApiExamples } from "../api/certificate-controller";
+import hardhat from "hardhat";
 
 /**
  * Script principal para emitir certificados desde la API
@@ -9,12 +10,16 @@ async function main() {
   console.log("🚀 Iniciando servicio de emisión de certificados...");
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
+  // Detectar la red actual
+  const networkName = hardhat.network.name;
+  console.log(`🌐 Red detectada: ${networkName}`);
+
   try {
     // Ejemplo 1: Emitir certificado individual
     console.log("\n🎯 Ejemplo 1: Emisión individual de certificado");
     console.log("═══════════════════════════════════════════════");
     
-    const singleRequest = CertificateApiExamples.getExampleSingleRequest();
+    const singleRequest = CertificateApiExamples.getExampleSingleRequest(networkName);
     console.log("📨 Datos del estudiante recibidos de la API:");
     console.log(`   👨‍🎓 Estudiante: ${singleRequest.student.full_name}`);
     console.log(`   📧 Email: ${singleRequest.student.email}`);
@@ -43,7 +48,7 @@ async function main() {
     console.log("\n\n🎯 Ejemplo 2: Emisión en lote de certificados");
     console.log("═══════════════════════════════════════════════");
     
-    const batchRequest = CertificateApiExamples.getExampleBatchRequest();
+    const batchRequest = CertificateApiExamples.getExampleBatchRequest(networkName);
     console.log(`📨 Lote recibido con ${batchRequest.certificates.length} certificados:`);
     
     batchRequest.certificates.forEach((cert, index) => {

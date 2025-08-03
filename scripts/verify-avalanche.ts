@@ -16,10 +16,8 @@ async function main() {
 
   const deploymentData = JSON.parse(fs.readFileSync(deploymentPath, "utf8"));
   const contractAddress = deploymentData.contractAddress;
-  const teleporterMessenger = deploymentData.teleporterMessenger;
 
   console.log("📄 Contract address:", contractAddress);
-  console.log("📡 Teleporter Messenger:", teleporterMessenger);
 
   try {
     // Ejecutar verificación
@@ -27,7 +25,8 @@ async function main() {
     
     await run("verify:verify", {
       address: contractAddress,
-      constructorArguments: [teleporterMessenger],
+      constructorArguments: [],
+      contract: "contracts/avalanche/CertNFT_Avalanche.sol:CertNFTAvalanche",
     });
 
     console.log("✅ Contract verified successfully!");
@@ -59,7 +58,6 @@ async function main() {
     console.log(`🔖 Symbol: ${symbol}`);
     console.log(`👤 Owner: ${owner}`);
     console.log(`🆔 Next Token ID: ${nextTokenId}`);
-    console.log(`📡 Teleporter: ${teleporterMessenger}`);
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
     console.log("\n✅ All tests passed! Contract is ready for use.");

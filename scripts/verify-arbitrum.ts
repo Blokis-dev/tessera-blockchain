@@ -26,6 +26,7 @@ async function main() {
     await run("verify:verify", {
       address: contractAddress,
       constructorArguments: [],
+      contract: "contracts/arbitrum/CertNFT_Arbitrum.sol:CertNFTArbitrum",
     });
 
     console.log("✅ Contract verified successfully!");

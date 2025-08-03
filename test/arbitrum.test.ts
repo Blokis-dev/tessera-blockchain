@@ -61,7 +61,7 @@ describe("CertNFTArbitrum", function () {
     it("Should not allow authorizing zero address", async function () {
       await expect(
         certNFT.authorizeInstitution(ethers.ZeroAddress)
-      ).to.be.revertedWith("CertNFT: Invalid institution address");
+      ).to.be.revertedWithCustomError(certNFT, "InvalidAddress");
     });
   });
 
@@ -122,7 +122,7 @@ describe("CertNFTArbitrum", function () {
           "QmTest",
           expirationTime
         )
-      ).to.be.revertedWith("CertNFT: Not authorized institution");
+      ).to.be.revertedWithCustomError(certNFT, "NotAuthorizedInstitution");
     });
 
     it("Should validate certificate data", async function () {

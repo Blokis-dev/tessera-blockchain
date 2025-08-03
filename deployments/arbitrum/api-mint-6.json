@@ -1,0 +1,87 @@
+{
+  "request": {
+    "student": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "email": "juan.perez@email.com",
+      "full_name": "Juan Pérez González",
+      "wallet_address": "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb"
+    },
+    "certificate": {
+      "title": "Certificado de Finalización - DeFi Protocols",
+      "description": "Certificado que acredita la finalización exitosa del curso DeFi Protocols",
+      "course_name": "DeFi Protocols en Arbitrum",
+      "issued_at": "2025-08-02T00:00:00Z",
+      "expiration_date": "2030-08-02T00:00:00Z"
+    },
+    "institution": {
+      "id": "660f9500-f3ac-52e5-b827-557766551111",
+      "name": "Academia Crypto Finance",
+      "legal_id": "RUC-20123456789"
+    },
+    "ipfs": {
+      "image_hash": "QmArbitrumCertificateImageHash",
+      "metadata_hash": "QmArbitrumMetadataHash"
+    }
+  },
+  "mint": {
+    "token_id": "6",
+    "transaction_hash": "0xccabede0da86ec8a1c539a7466d345d18045f6be5308a3a820c4883cc0fb36c4",
+    "block_number": 180056675,
+    "gas_used": "295386",
+    "contract_address": "0x52B13E3F00079c00824E68DC9f1dBCc7D0BE808B",
+    "metadata_url": "https://ipfs.io/ipfs/QmArbitrumMetadataHash",
+    "certificate_id": "21cbcb6571c19d52"
+  },
+  "metadata": {
+    "name": "DeFi Protocols en Arbitrum - Juan Pérez González",
+    "description": "Certificado digital de DeFi Protocols en Arbitrum otorgado por Academia Crypto Finance a Juan Pérez González. Este certificado está verificado en blockchain y es inmutable.",
+    "image": "https://ipfs.io/ipfs/QmArbitrumCertificateImageHash",
+    "external_url": "https://certchain.com/verify/21cbcb6571c19d52",
+    "attributes": [
+      {
+        "trait_type": "Student Name",
+        "value": "Juan Pérez González"
+      },
+      {
+        "trait_type": "Course",
+        "value": "DeFi Protocols en Arbitrum"
+      },
+      {
+        "trait_type": "Institution",
+        "value": "Academia Crypto Finance"
+      },
+      {
+        "trait_type": "Issue Date",
+        "value": "2025-08-02"
+      },
+      {
+        "trait_type": "Expiration Date",
+        "value": "2030-08-02"
+      },
+      {
+        "trait_type": "Blockchain",
+        "value": "Arbitrum"
+      },
+      {
+        "trait_type": "Certificate Type",
+        "value": "Digital Certificate"
+      },
+      {
+        "trait_type": "Valid",
+        "value": "Yes"
+      }
+    ],
+    "certificate_data": {
+      "student_name": "Juan Pérez González",
+      "course_name": "DeFi Protocols en Arbitrum",
+      "institution_name": "Academia Crypto Finance",
+      "issue_date": "2025-08-02T00:00:00.000Z",
+      "expiration_date": "2030-08-02T00:00:00.000Z",
+      "certificate_id": "21cbcb6571c19d52",
+      "blockchain": "Arbitrum"
+    }
+  },
+  "network": "arbitrum",
+  "timestamp": "2025-08-03T00:06:58.040Z",
+  "api_version": "1.0.0"
+}

@@ -19,6 +19,24 @@ contract CertNFTAvalanche is ERC721, ERC721URIStorage, Ownable {
     // Mapeo de certificados para verificación
     mapping(uint256 => CertificateData) public certificates;
     
+    // =============== EVENTOS ICM/ICTT ===============
+    
+    /// @notice Evento para notificaciones ICM entre blockchains
+    event ICMMessageSent(
+        bytes32 indexed messageId,
+        address indexed destinationBlockchain,
+        uint256 indexed tokenId,
+        bytes message
+    );
+    
+    /// @notice Evento para preparación de transferencias ICTT
+    event TokenPreparedForTransfer(
+        uint256 indexed tokenId,
+        address indexed destinationChain
+    );
+    
+    // =============== ESTRUCTURAS DE DATOS ===============
+    
     // Estructura de datos del certificado
     struct CertificateData {
         string studentName;
@@ -195,6 +213,70 @@ contract CertNFTAvalanche is ERC721, ERC721URIStorage, Ownable {
         }
 
         return tokenIds;
+    }
+
+    // =============== FUNCIONES ICM/ICTT ===============
+    
+    /**
+     * @dev Envía notificación ICM a otra blockchain
+     * @param destinationBlockchain Dirección del contrato destino
+     * @param tokenId ID del token certificado
+     * @param message Mensaje a enviar
+     */
+    function sendICMNotification(
+        address destinationBlockchain,
+        uint256 tokenId,
+        bytes memory message
+    ) external onlyAuthorizedInstitution {
+        if (!_exists(tokenId)) revert TokenNotExists();
+        
+        bytes32 messageId = keccak256(
+            abi.encodePacked(
+                tokenId,
+                block.timestamp,
+                message,
+                destinationBlockchain
+            )
+        );
+        
+        emit ICMMessageSent(messageId, destinationBlockchain, tokenId, message);
+    }
+    
+    /**
+     * @dev Prepara token para transferencia ICTT
+     * @param tokenId Token a transferir
+     * @param destinationChain Blockchain destino
+     */
+    function prepareICTTransfer(
+        uint256 tokenId,
+        address destinationChain
+    ) external {
+        if (ownerOf(tokenId) != msg.sender && msg.sender != owner()) {
+            revert NotAuthorizedInstitution();
+        }
+        if (!_exists(tokenId)) revert TokenNotExists();
+        
+        // Marcar como en tránsito (temporal para ICTT)
+        certificates[tokenId].isValid = false;
+        
+        emit TokenPreparedForTransfer(tokenId, destinationChain);
+    }
+    
+    /**
+     * @dev Completa transferencia ICTT (recibe token de otra chain)
+     * @param tokenId ID del token
+     * @param originalChain Chain de origen
+     */
+    function completeICTTransfer(
+        uint256 tokenId,
+        address originalChain
+    ) external onlyOwner {
+        if (_exists(tokenId)) {
+            // Reactivar token recibido
+            certificates[tokenId].isValid = true;
+        }
+        
+        emit TokenPreparedForTransfer(tokenId, originalChain);
     }
 
     /**

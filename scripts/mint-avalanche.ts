@@ -29,7 +29,7 @@ async function main() {
 
   // Datos del certificado (puedes modificar estos datos)
   const certificateData = {
-    recipient: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", // Cuenta #1 del nodo local
+    recipient: deployer.address, // Usar la cuenta del deployer para evitar problemas
     studentName: "María González López",
     courseName: "Desarrollo de DApps en Avalanche",
     institutionName: "Instituto Blockchain Avanzado",

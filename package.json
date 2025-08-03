@@ -4,6 +4,8 @@
   "description": "Sistema de certificación blockchain con NFTs en Avalanche y Arbitrum",
   "main": "hardhat.config.ts",
   "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "compile": "hardhat compile",
     "clean": "hardhat clean",
     "node": "hardhat node",
@@ -23,7 +25,13 @@
     "api:mint:arbitrum": "hardhat run scripts/api-certificate-mint.ts --network arbitrumSepolia",
     "demo": "npx ts-node scripts/demo-api-integration.ts"
   },
-  "keywords": ["blockchain", "nft", "certificates", "avalanche", "arbitrum"],
+  "keywords": [
+    "blockchain",
+    "nft",
+    "certificates",
+    "avalanche",
+    "arbitrum"
+  ],
   "author": "Blokis Team",
   "license": "MIT",
   "devDependencies": {
@@ -32,5 +40,9 @@
     "dotenv": "^17.2.1",
     "ethers": "^6.15.0",
     "hardhat": "^2.26.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   }
 }

@@ -1,0 +1,62 @@
+{
+  "tokenId": "2",
+  "recipient": "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb",
+  "studentName": "Carlos Rivera Mendoza",
+  "courseName": "DeFi Protocols en Arbitrum",
+  "institutionName": "Academia Crypto Finance",
+  "transactionHash": "0xa650807284ebe3ea358f835523b3223c9f1d851c033cee4710669dd731e501af",
+  "blockNumber": 180054547,
+  "gasUsed": "295302",
+  "timestamp": "2025-08-02T23:57:44.041Z",
+  "metadata": {
+    "name": "DeFi Protocols en Arbitrum - Carlos Rivera Mendoza",
+    "description": "Certificado digital de DeFi Protocols en Arbitrum otorgado por Academia Crypto Finance a Carlos Rivera Mendoza. Este certificado está verificado en blockchain y es inmutable.",
+    "image": "https://ipfs.io/ipfs/QmArbitrumCertificateImageHash",
+    "external_url": "https://certchain.com/verify/04a5c2f1bb63bf14",
+    "attributes": [
+      {
+        "trait_type": "Student Name",
+        "value": "Carlos Rivera Mendoza"
+      },
+      {
+        "trait_type": "Course",
+        "value": "DeFi Protocols en Arbitrum"
+      },
+      {
+        "trait_type": "Institution",
+        "value": "Academia Crypto Finance"
+      },
+      {
+        "trait_type": "Issue Date",
+        "value": "2025-08-02"
+      },
+      {
+        "trait_type": "Expiration Date",
+        "value": "2030-08-02"
+      },
+      {
+        "trait_type": "Blockchain",
+        "value": "Arbitrum"
+      },
+      {
+        "trait_type": "Certificate Type",
+        "value": "Digital Certificate"
+      },
+      {
+        "trait_type": "Valid",
+        "value": "Yes"
+      }
+    ],
+    "certificate_data": {
+      "student_name": "Carlos Rivera Mendoza",
+      "course_name": "DeFi Protocols en Arbitrum",
+      "institution_name": "Academia Crypto Finance",
+      "issue_date": "2025-08-02T23:57:40.545Z",
+      "expiration_date": "2030-08-02T23:57:40.545Z",
+      "certificate_id": "04a5c2f1bb63bf14",
+      "blockchain": "Arbitrum"
+    }
+  },
+  "contractAddress": "0x52B13E3F00079c00824E68DC9f1dBCc7D0BE808B",
+  "network": "Arbitrum Sepolia"
+}

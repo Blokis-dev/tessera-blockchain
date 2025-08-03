@@ -1,0 +1,87 @@
+{
+  "request": {
+    "student": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "email": "juan.perez@email.com",
+      "full_name": "Juan Pérez González",
+      "wallet_address": "0xEe1001B535826EDc4247E7f3a024dDc145A20bdb"
+    },
+    "certificate": {
+      "title": "Certificado de Finalización - DeFi Protocols",
+      "description": "Certificado que acredita la finalización exitosa del curso DeFi Protocols",
+      "course_name": "DeFi Protocols en Avalanche",
+      "issued_at": "2025-08-02T00:00:00Z",
+      "expiration_date": "2030-08-02T00:00:00Z"
+    },
+    "institution": {
+      "id": "660f9500-f3ac-52e5-b827-557766551111",
+      "name": "Academia Crypto Finance",
+      "legal_id": "RUC-20123456789"
+    },
+    "ipfs": {
+      "image_hash": "QmAvalancheCertificateImageHash",
+      "metadata_hash": "QmAvalancheMetadataHash"
+    }
+  },
+  "mint": {
+    "token_id": "7",
+    "transaction_hash": "0xab4f5e38e5306eae1c8732c47274661db73e0279f06d2116d3fe6ca34446c8a2",
+    "block_number": 44263516,
+    "gas_used": "295422",
+    "contract_address": "0x2017ee0C335A0f799562006B3d5DD00F345a5033",
+    "metadata_url": "https://ipfs.io/ipfs/QmAvalancheMetadataHash",
+    "certificate_id": "4ecfff65333fa8bf"
+  },
+  "metadata": {
+    "name": "DeFi Protocols en Avalanche - Juan Pérez González",
+    "description": "Certificado digital de DeFi Protocols en Avalanche otorgado por Academia Crypto Finance a Juan Pérez González. Este certificado está verificado en blockchain y es inmutable.",
+    "image": "https://ipfs.io/ipfs/QmAvalancheCertificateImageHash",
+    "external_url": "https://certchain.com/verify/4ecfff65333fa8bf",
+    "attributes": [
+      {
+        "trait_type": "Student Name",
+        "value": "Juan Pérez González"
+      },
+      {
+        "trait_type": "Course",
+        "value": "DeFi Protocols en Avalanche"
+      },
+      {
+        "trait_type": "Institution",
+        "value": "Academia Crypto Finance"
+      },
+      {
+        "trait_type": "Issue Date",
+        "value": "2025-08-02"
+      },
+      {
+        "trait_type": "Expiration Date",
+        "value": "2030-08-02"
+      },
+      {
+        "trait_type": "Blockchain",
+        "value": "Avalanche"
+      },
+      {
+        "trait_type": "Certificate Type",
+        "value": "Digital Certificate"
+      },
+      {
+        "trait_type": "Valid",
+        "value": "Yes"
+      }
+    ],
+    "certificate_data": {
+      "student_name": "Juan Pérez González",
+      "course_name": "DeFi Protocols en Avalanche",
+      "institution_name": "Academia Crypto Finance",
+      "issue_date": "2025-08-02T00:00:00.000Z",
+      "expiration_date": "2030-08-02T00:00:00.000Z",
+      "certificate_id": "4ecfff65333fa8bf",
+      "blockchain": "Avalanche"
+    }
+  },
+  "network": "avalanche",
+  "timestamp": "2025-08-03T00:07:23.850Z",
+  "api_version": "1.0.0"
+}
